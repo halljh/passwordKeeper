@@ -1,4 +1,13 @@
 <md-toolbar color="primary">
-  Password Keeper
+  <span>Password Keeper</span>
+  <span fxFlex></span>
+  <button *ngIf="showSignOut" md-icon-button [mdMenuTriggerFor]="signoutMenu">
+    <md-icon>more_vert</md-icon>
+  </button>
 </md-toolbar>
+
+<md-menu #signoutMenu="mdMenu" [overlapTrigger]="false">
+  <button md-menu-item (click)="signOut()">Sign Out</button>
+</md-menu>
+
 <router-outlet></router-outlet>

@@ -7,8 +7,14 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  
+  showSignOut = true;
+
   constructor(af: AngularFire) {
   }
-  
+
+  signOut(): void {
+    // TODO
+  }
+
 }
