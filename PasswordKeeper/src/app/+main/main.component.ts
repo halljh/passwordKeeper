@@ -38,6 +38,10 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
+  showAddPasswordDialog(): void {
+    console.log('TODO add dialog');
+  }
+
   ngOnDestroy(): void {
     this.authSubscription.unsubscribe();
   }

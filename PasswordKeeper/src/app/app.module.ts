@@ -11,12 +11,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { AngularFireModule } from 'angularfire2';
 import { MainComponent } from './+main/main.component';
 import { SigninComponent } from './+signin/signin.component';
+import { PasswordDialogComponent } from './password-dialog/password-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    SigninComponent
+    SigninComponent,
+    PasswordDialogComponent
   ],
   imports: [
     BrowserModule,
