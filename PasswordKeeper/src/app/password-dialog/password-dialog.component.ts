@@ -1,3 +1,4 @@
+import { MdDialogRef } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PasswordDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogRef: MdDialogRef<PasswordDialogComponent>) { 
+    var data = this.dialogRef.config.data;
+    console.log("Recieved the data ",data);
+  }
 
   ngOnInit() {
   }
