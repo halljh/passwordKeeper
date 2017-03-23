@@ -11,5 +11,6 @@ export const environment = {
     databaseURL: "https://halljh-passwordkeeper.firebaseio.com",
     storageBucket: "halljh-passwordkeeper.appspot.com",
     messagingSenderId: "357279967626"
-  }
+  },
+  rosefireRegistryToken: "db450c5c-5b10-48fd-ab74-0eddce56f4e4"
 };
