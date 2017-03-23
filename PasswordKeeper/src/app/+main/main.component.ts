@@ -1,7 +1,14 @@
 import { Router } from '@angular/router';
-import { AngularFire, FirebaseAuthState } from 'angularfire2';
+import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs/Subscription";
+import { Password } from "../password.model";
+
+// interface Password {
+//   service: string;
+//   username?: string;
+//   password: string;
+// }
 
 @Component({
   selector: 'app-main',
@@ -10,6 +17,7 @@ import { Subscription } from "rxjs/Subscription";
 })
 export class MainComponent implements OnInit, OnDestroy {
 
+  passwordStream: FirebaseListObservable<Password[]>;
   private authSubscription: Subscription;
 
   constructor(private af: AngularFire, private router: Router) {
@@ -17,11 +25,14 @@ export class MainComponent implements OnInit, OnDestroy {
     this.authSubscription = af.auth.subscribe( (auth: FirebaseAuthState) => {
       if (auth) {
         console.log("You are signed in. All is good.");
+        var firebasePath = `/users/${auth.uid}`;
+        this.passwordStream = this.af.database.list(firebasePath);
       } else {
         console.log("Not signed in. Bounce to signin.");
         this.router.navigate(['/signin']);
       }
     });
+   
   }
 
   ngOnInit(): void {
